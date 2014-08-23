@@ -101,7 +101,7 @@ Before testig you you need to create config file in the root folderon this proje
     "login"   : "account login",
     "password": "account password",
     "key"     : "AIP service key",
-    "proxy"   : "http:proxy-url"
+    "proxy"   : "http//:proxy-url"
 }
 ```
 
