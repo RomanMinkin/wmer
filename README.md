@@ -105,9 +105,13 @@ Before testig you you need to create config file in the root folderon this proje
 }
 ```
 
-Run tests
+Runing tests
 ```bash
-npm test
+$ npm test
 ```
 
+Runing tests with debug on
+```bash
+DEBUG=wmer npm test
+```
 
