@@ -88,13 +88,24 @@ describe('wmerClient', function() {
         });
     });
 
-    describe('.operation(orderId, phone, amount, description)', function() {
+    describe('.operation(orderId, currency, purse, amount, description)', function() {
         /*
             To prevent money spending through actual payment
             catching error to low balance
          */
-        it('should return provider name by phone number', function (done) {
+        it('should transfer money to the particular purse', function (done) {
             wmerClient.operation('12', 'osmp_1', '7-917-586-6693', 1.0, 'test payment')
+                .done(done, function (reason) {
+                    reason.code.should.be.equal('-10');
+                    reason.message.should.be.equal('Сумма платежа слишком мала. Минимальная сумма платежа 10 рублей');
+                    done();
+                });
+        });
+    });
+
+    describe('.operationMobile(orderId, phone, amount, description)', function() {
+        it('should transfer money to the phone number', function (done) {
+            wmerClient.operationMobile('12', '7-917-586-6693', 2, 'test payment')
                 .done(done, function (reason) {
                     reason.code.should.be.equal('-10');
                     reason.message.should.be.equal('Сумма платежа слишком мала. Минимальная сумма платежа 10 рублей');

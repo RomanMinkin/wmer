@@ -1,6 +1,6 @@
 {
   "name": "wmer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Payment client for wmer.ru",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,8 @@
   },
   "devDependencies": {
     "should": "^4.0.4"
+  },
+  "directories": {
+    "test": "test"
   }
 }
